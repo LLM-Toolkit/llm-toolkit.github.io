@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessibility Features Test</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .test-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .keyboard-instructions {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        .keyboard-instructions kbd {
+            background: #e9ecef;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .demo-form {
+            max-width: 500px;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        .success-message {
+            color: #28a745;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+    </style>
+<meta name="description" content="Information about test accessibility for AI and LLM development."><link rel="canonical" href="https://your-domain.com/test-accessibility.html"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Test Accessibility",
+  "description": "Information about test accessibility for AI and LLM development.",
+  "url": "https://your-domain.com/test-accessibility.html"
+}</script><meta property="og:title" content="Test Accessibility"><meta property="og:description" content="Information about test accessibility for AI and LLM development."><meta property="og:url" content="https://your-domain.com/test-accessibility.html"><meta property="og:type" content="website"><meta property="og:site_name" content="SEO LLM Bot Website"></head>
+<body>
+    <div class="test-container">
+        <h1>Accessibility Features Test</h1>
+        
+        <div class="keyboard-instructions">
+            <h2>Keyboard Navigation Instructions</h2>
+            <ul>
+                <li><kbd>Tab</kbd> - Navigate forward through interactive elements</li>
+                <li><kbd>Shift + Tab</kbd> - Navigate backward through interactive elements</li>
+                <li><kbd>Alt + M</kbd> - Skip to main content</li>
+                <li><kbd>Alt + N</kbd> - Skip to navigation</li>
+                <li><kbd>Ctrl + Shift + A</kbd> - Run accessibility audit (development only)</li>
+                <li><kbd>Arrow Keys</kbd> - Navigate within menus</li>
+                <li><kbd>Enter</kbd> or <kbd>Space</kbd> - Activate buttons and links</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>Skip Links Test</h2>
+            <p>Press <kbd>Tab</kbd> to see skip links appear at the top of the page. These help keyboard users navigate quickly to main content areas.</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Navigation Test</h2>
+            <nav aria-label="Test navigation menu" role="navigation">
+                <ul>
+                    <li><a href="#section1">Section 1</a></li>
+                    <li><a href="#section2">Section 2</a></li>
+                    <li><a href="#section3">Section 3</a></li>
+                    <li><a href="https://llm-toolkit.github.io" target="_blank">External Link</a></li>
+                </ul>
+            </nav>
+            <p>Use <kbd>Tab</kbd> to navigate through links, or <kbd>Arrow Keys</kbd> when focused on the menu.</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Button Test</h2>
+            <div class="test-grid">
+                <div>
+                    <h3>Standard Buttons</h3>
+                    <button type="button" onclick="announceMessage('Standard button clicked')">Standard Button</button>
+                    <button type="button" disabled="">Disabled Button</button>
+                </div>
+                <div>
+                    <h3>CTA Buttons</h3>
+                    <a href="#" class="cta-primary" role="button" onclick="announceMessage('Primary CTA clicked'); return false;">Primary CTA</a>
+                    <a href="#" class="cta-secondary" role="button" onclick="announceMessage('Secondary CTA clicked'); return false;">Secondary CTA</a>
+                </div>
+                <div>
+                    <h3>Expandable Button</h3>
+                    <button type="button" aria-expanded="false" onclick="toggleExpanded(this)">Toggle Content</button>
+                    <div id="expandable-content" style="display: none; margin-top: 1rem; padding: 1rem; background: #f8f9fa;">
+                        This content can be expanded and collapsed.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Form Accessibility Test</h2>
+            <form class="demo-form" onsubmit="return validateForm(event)">
+                <div class="form-group">
+                    <label for="name">Name (required)</label>
+                    <input type="text" id="name" name="name" required="" aria-describedby="name-help">
+                    <div id="name-help" class="help-text">Enter your full name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" aria-describedby="email-help">
+                    <div id="email-help" class="help-text">We'll never share your email</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" name="category">
+                        <option value="">Select a category</option>
+                        <option value="general">General</option>
+                        <option value="technical">Technical</option>
+                        <option value="feedback">Feedback</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" aria-describedby="message-help"></textarea>
+                    <div id="message-help" class="help-text">Optional message or comments</div>
+                </div>
+                
+                <button type="submit">Submit Form</button>
+            </form>
+        </div>
+
+        <div class="test-section">
+            <h2>Live Region Test</h2>
+            <button onclick="announceMessage('This is a polite announcement')">Announce Polite Message</button>
+            <button onclick="announceMessage('This is an assertive announcement', 'assertive')">Announce Assertive Message</button>
+            <div id="live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Image Accessibility Test</h2>
+            <div class="test-grid">
+                <div>
+                    <h3>Decorative Image</h3>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100%25' height='100%25' fill='%23e9ecef'/%3E%3C/svg%3E" alt="Descriptive image" role="presentation" width="100" height="100">
+                    <p>This image is decorative and has empty alt text.</p>
+                </div>
+                <div>
+                    <h3>Informative Image</h3>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect width='100%25' height='100%25' fill='%23007bff'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white'%3EChart%3C/text%3E%3C/svg%3E" alt="Chart showing 75% completion rate" width="100" height="100">
+                    <p>This image conveys information and has descriptive alt text.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Table Accessibility Test</h2>
+            <table role="table" aria-label="Sample data table">
+                <caption>Monthly Performance Data</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Month</th>
+                        <th scope="col">Visitors</th>
+                        <th scope="col">Conversion Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">January</th>
+                        <td>1,234</td>
+                        <td>3.2%</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">February</th>
+                        <td>1,456</td>
+                        <td>3.8%</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">March</th>
+                        <td>1,678</td>
+                        <td>4.1%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="test-section">
+            <h2>Focus Management Test</h2>
+            <button onclick="testFocusManagement()">Test Focus Management</button>
+            <div id="focus-test-area" style="margin-top: 1rem;"></div>
+        </div>
+    </div>
+
+    <script src="assets/js/accessibility-enhancer.js"></script>
+    <script>
+        function announceMessage(message, priority = 'polite') {
+            if (window.accessibilityEnhancer && window.accessibilityEnhancer.screenReaderSupport) {
+                window.accessibilityEnhancer.screenReaderSupport.announce(message, priority);
+            } else {
+                // Fallback for direct announcement
+                const liveRegion = document.getElementById('live-region');
+                if (liveRegion) {
+                    liveRegion.setAttribute('aria-live', priority);
+                    liveRegion.textContent = message;
+                    setTimeout(() => {
+                        liveRegion.textContent = '';
+                    }, 1000);
+                }
+            }
+        }
+
+        function toggleExpanded(button) {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            const content = document.getElementById('expandable-content');
+            
+            button.setAttribute('aria-expanded', !isExpanded);
+            content.style.display = isExpanded ? 'none' : 'block';
+            
+            announceMessage(isExpanded ? 'Content collapsed' : 'Content expanded');
+        }
+
+        function validateForm(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            
+            // Clear previous error states
+            document.querySelectorAll('.error-message').forEach(el => el.remove());
+            document.querySelectorAll('[aria-invalid="true"]').forEach(el => {
+                el.removeAttribute('aria-invalid');
+            });
+            
+            let hasErrors = false;
+            
+            // Validate name
+            if (!name.value.trim()) {
+                showFieldError(name, 'Name is required');
+                hasErrors = true;
+            }
+            
+            // Validate email format
+            if (email.value && !isValidEmail(email.value)) {
+                showFieldError(email, 'Please enter a valid email address');
+                hasErrors = true;
+            }
+            
+            if (hasErrors) {
+                announceMessage('Form has errors. Please correct them and try again.', 'assertive');
+                // Focus first error field
+                const firstError = document.querySelector('[aria-invalid="true"]');
+                if (firstError) {
+                    firstError.focus();
+                }
+            } else {
+                announceMessage('Form submitted successfully!');
+                showSuccessMessage('Form submitted successfully!');
+            }
+            
+            return false;
+        }
+
+        function showFieldError(field, message) {
+            field.setAttribute('aria-invalid', 'true');
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = message;
+            errorDiv.id = field.id + '-error';
+            
+            field.setAttribute('aria-describedby', 
+                (field.getAttribute('aria-describedby') || '') + ' ' + errorDiv.id);
+            
+            field.parentNode.appendChild(errorDiv);
+        }
+
+        function showSuccessMessage(message) {
+            const form = document.querySelector('.demo-form');
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.textContent = message;
+            successDiv.setAttribute('role', 'status');
+            successDiv.setAttribute('aria-live', 'polite');
+            
+            form.appendChild(successDiv);
+            
+            setTimeout(() => {
+                successDiv.remove();
+            }, 5000);
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function testFocusManagement() {
+            const testArea = document.getElementById('focus-test-area');
+            testArea.innerHTML = `
+                <p>Focus management test area:</p>
+                <button onclick="this.focus()">Button 1</button>
+                <button onclick="this.focus()">Button 2</button>
+                <button onclick="this.focus()">Button 3</button>
+                <p>Use Tab to navigate between buttons.</p>
+            `;
+            
+            // Focus first button
+            const firstButton = testArea.querySelector('button');
+            if (firstButton) {
+                firstButton.focus();
+            }
+            
+            announceMessage('Focus management test area created');
+        }
+
+        // Test keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Log accessibility features on load
+        window.addEventListener('load', () => {
+            console.log('Accessibility features loaded:');
+            console.log('- Skip links available');
+            console.log('- Keyboard navigation enabled');
+            console.log('- ARIA labels and roles applied');
+            console.log('- Screen reader support active');
+            console.log('- Focus management enabled');
+            
+            if (window.accessibilityEnhancer) {
+                console.log('- Accessibility enhancer initialized');
+            }
+        });
+    </script>
+
+</body></html>

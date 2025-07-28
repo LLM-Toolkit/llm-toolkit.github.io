@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Functionality Test - LLM Tools Hub</title>
+    <meta name="description" content="Test page for internal search functionality">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/search-styles.css">
+    <style>
+        .test-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .test-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .test-results {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 4px;
+        }
+        
+        .test-error {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+        
+        .search-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .stat-card {
+            padding: 1rem;
+            background: #e3f2fd;
+            border-radius: 4px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1976d2;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+<link rel="canonical" href="https://your-domain.com/test-search.html"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Test Search",
+  "description": "Information about test search for AI and LLM development.",
+  "url": "https://your-domain.com/test-search.html"
+}</script><meta property="og:title" content="Test Search"><meta property="og:description" content="Information about test search for AI and LLM development."><meta property="og:url" content="https://your-domain.com/test-search.html"><meta property="og:type" content="website"><meta property="og:site_name" content="SEO LLM Bot Website"></head>
+<body>
+    <header role="banner">
+        <div class="header-container">
+            <h1>LLM Tools &amp; AI Resources Hub</h1>
+            <p class="tagline">Search Functionality Test Page</p>
+            <nav role="navigation" aria-label="Main site navigation">
+                <ul class="main-nav">
+                    <li><a href="/" title="Homepage">Home</a></li>
+                    <li><a href="documents/" title="Documentation">Documentation</a></li>
+                    <li><a href="comparisons/" title="Comparisons">Comparisons</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main">
+        <div class="test-container">
+            <h1>Search Functionality Test</h1>
+            <p>This page tests the internal search functionality for the LLM Tools Hub website.</p>
+
+            <div class="test-section">
+                <h2>Search Engine Status</h2>
+                <div id="search-status" class="test-results">
+                    <p>Initializing search engine...</p>
+                </div>
+                
+                <div class="search-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="index-size">-</div>
+                        <div class="stat-label">Indexed Terms</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="document-count">-</div>
+                        <div class="stat-label">Documents</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="init-time">-</div>
+                        <div class="stat-label">Init Time (ms)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="test-section">
+                <h2>Search Interface Test</h2>
+                <p>The search interface should appear below. Try searching for terms like "LLM", "Ollama", "machine learning", etc.</p>
+                <!-- Search interface will be inserted here by JavaScript -->
+            </div>
+
+            <div class="test-section">
+                <h2>Test Queries</h2>
+                <p>Click these buttons to test common search queries:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0;">
+                    <button class="test-query-btn" data-query="GGUF Loader">GGUF Loader</button>
+                    <button class="test-query-btn" data-query="local LLM">local LLM</button>
+                    <button class="test-query-btn" data-query="GGUFLoader">GGUFLoader</button>
+                    <button class="test-query-btn" data-query="offline chat">offline chat</button>
+                    <button class="test-query-btn" data-query="desktop application">desktop application</button>
+                    <button class="test-query-btn" data-query="quantized models">quantized models</button>
+                    <button class="test-query-btn" data-query="LLM implementation">LLM implementation</button>
+                    <button class="test-query-btn" data-query="AI tools">AI tools</button>
+                    <button class="test-query-btn" data-query="LM Studio">LM Studio</button>
+                    <button class="test-query-btn" data-query="pip install ggufloader">pip install ggufloader</button>
+                    <button class="test-query-btn" data-query="PyPI ggufloader">PyPI ggufloader</button>
+                    <button class="test-query-btn" data-query="floating assistant">floating assistant</button>
+                    <button class="test-query-btn" data-query="cross-platform LLM">cross-platform LLM</button>
+                    <button class="test-query-btn" data-query="GGUF models">GGUF models</button>
+                    <button class="test-query-btn" data-query="Q4_0 Q6_K">Q4_0 Q6_K</button>
+                </div>
+                
+                <div id="test-results" class="test-results" style="display: none;">
+                    <h3>Last Search Results:</h3>
+                    <div id="test-results-content"></div>
+                </div>
+            </div>
+
+            <div class="test-section">
+                <h2>Bot Detection Test</h2>
+                <div id="bot-detection" class="test-results">
+                    <p>Checking bot detection...</p>
+                </div>
+            </div>
+
+            <div class="test-section">
+                <h2>Search Analytics</h2>
+                <div id="search-analytics" class="test-results">
+                    <p>Search analytics will appear here after performing searches...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Test Page</h3>
+                <p>This is a test page for search functionality validation.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 LLM Tools &amp; AI Resources Hub. Search Test Page.</p>
+        </div>
+    </footer>
+
+    <!-- Load search functionality -->
+    <script src="assets/js/search-engine.js"></script>
+    <script src="assets/js/search-integration.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const startTime = Date.now();
+            
+            // Test search engine initialization
+            function testSearchEngine() {
+                if (typeof window.searchEngine === 'undefined' || !window.searchEngine) {
+                    setTimeout(testSearchEngine, 100);
+                    return;
+                }
+
+                const initTime = Date.now() - startTime;
+                const statusDiv = document.getElementById('search-status');
+                const searchEngine = window.searchEngine;
+
+                if (searchEngine.isReady()) {
+                    statusDiv.innerHTML = '<p style="color: green;">✓ Search engine initialized successfully!</p>';
+                    statusDiv.className = 'test-results';
+                    
+                    // Update stats
+                    document.getElementById('index-size').textContent = searchEngine.searchIndex.size;
+                    document.getElementById('document-count').textContent = searchEngine.documents.length;
+                    document.getElementById('init-time').textContent = initTime;
+                } else {
+                    statusDiv.innerHTML = '<p style="color: red;">✗ Search engine failed to initialize</p>';
+                    statusDiv.className = 'test-results test-error';
+                }
+            }
+
+            testSearchEngine();
+
+            // Test query buttons
+            document.querySelectorAll('.test-query-btn').forEach(button => {
+                button.style.cssText = 'padding: 0.5rem 1rem; margin: 0.25rem; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;';
+                
+                button.addEventListener('click', function() {
+                    const query = this.dataset.query;
+                    const searchInput = document.getElementById('search-input');
+                    
+                    if (searchInput && window.searchEngine) {
+                        searchInput.value = query;
+                        window.searchEngine.performSearch(query);
+                        
+                        // Show test results
+                        const results = window.searchEngine.getLastResults();
+                        const testResults = document.getElementById('test-results');
+                        const testResultsContent = document.getElementById('test-results-content');
+                        
+                        testResultsContent.innerHTML = `
+                            <p><strong>Query:</strong> "${query}"</p>
+                            <p><strong>Results:</strong> ${results.length} found</p>
+                            <ul>
+                                ${results.slice(0, 3).map(result => 
+                                    `<li><strong>${result.title}</strong> (Score: ${result.relevanceScore.toFixed(1)})</li>`
+                                ).join('')}
+                            </ul>
+                        `;
+                        
+                        testResults.style.display = 'block';
+                    }
+                });
+            });
+
+            // Bot detection test
+            function testBotDetection() {
+                if (window.searchEngine) {
+                    const isBot = window.searchEngine.detectBot();
+                    const botDetection = document.getElementById('bot-detection');
+                    
+                    botDetection.innerHTML = `
+                        <p><strong>User Agent:</strong> ${navigator.userAgent}</p>
+                        <p><strong>Detected as Bot:</strong> ${isBot ? 'Yes' : 'No'}</p>
+                    `;
+                }
+            }
+
+            setTimeout(testBotDetection, 1000);
+
+            // Listen for search events
+            window.addEventListener('siteSearch', function(event) {
+                const searchData = event.detail;
+                const analyticsDiv = document.getElementById('search-analytics');
+                
+                analyticsDiv.innerHTML = `
+                    <h4>Last Search Event:</h4>
+                    <p><strong>Query:</strong> ${searchData.query}</p>
+                    <p><strong>Results:</strong> ${searchData.resultCount}</p>
+                    <p><strong>Timestamp:</strong> ${searchData.timestamp}</p>
+                    <p><strong>Is Bot:</strong> ${searchData.isBot ? 'Yes' : 'No'}</p>
+                `;
+            });
+        });
+    </script>
+
+</body></html>

@@ -1,0 +1,70 @@
+# Robots.txt for LLM Tools & AI Resources Hub
+# Generated automatically for SEO optimization
+# Last updated: 2025-07-28T08:07:44.940Z
+
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# Disallow access to admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.kiro/
+Disallow: /scripts/
+
+# Allow access to important files
+Allow: /assets/
+Allow: /robots.txt
+Allow: /sitemap*.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap locations
+Sitemap: https://llm-toolkit.github.io/sitemap-index.xml
+Sitemap: https://llm-toolkit.github.io/sitemap.xml
+Sitemap: https://llm-toolkit.github.io/sitemap-documents.xml
+Sitemap: https://llm-toolkit.github.io/sitemap-comparisons.xml
+
+# Host directive
+Host: https://llm-toolkit.github.io

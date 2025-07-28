@@ -1,0 +1,298 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Test Page - LLM Tools Hub</title>
+    <meta name="description" content="Test page for analytics and bot detection functionality">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .result {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #2563eb;
+        }
+        .error {
+            border-left-color: #dc2626;
+            background: #fef2f2;
+        }
+        .success {
+            border-left-color: #10b981;
+            background: #f0fdf4;
+        }
+        button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1d4ed8;
+        }
+        pre {
+            background: #1f2937;
+            color: #f9fafb;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+<link rel="canonical" href="https://your-domain.com/test-analytics.html"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Test Analytics",
+  "description": "Information about test analytics for AI and LLM development.",
+  "url": "https://your-domain.com/test-analytics.html"
+}</script><meta property="og:title" content="Test Analytics"><meta property="og:description" content="Information about test analytics for AI and LLM development."><meta property="og:url" content="https://your-domain.com/test-analytics.html"><meta property="og:type" content="website"><meta property="og:site_name" content="SEO LLM Bot Website"></head>
+<body>
+    <h1>Analytics &amp; Bot Detection Test</h1>
+    <p>This page tests the bot detection and analytics monitoring systems.</p>
+
+    <div class="test-section">
+        <h2>Bot Detection Test</h2>
+        <button onclick="testBotDetection()">Test Bot Detection</button>
+        <div id="bot-detection-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Analytics Monitor Test</h2>
+        <button onclick="testAnalyticsMonitor()">Test Analytics Monitor</button>
+        <div id="analytics-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Performance Metrics Test</h2>
+        <button onclick="testPerformanceMetrics()">Test Performance Metrics</button>
+        <div id="performance-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>SEO Health Test</h2>
+        <button onclick="testSEOHealth()">Test SEO Health</button>
+        <div id="seo-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Content Insights Test</h2>
+        <button onclick="testContentInsights()">Test Content Insights</button>
+        <div id="content-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Stored Data</h2>
+        <button onclick="showStoredData()">Show Stored Data</button>
+        <button onclick="clearStoredData()">Clear All Data</button>
+        <div id="stored-data-results"></div>
+    </div>
+
+    <!-- Load the analytics scripts -->
+    <script src="assets/js/bot-detector.js"></script>
+    <script src="assets/js/analytics-monitor.js"></script>
+
+    <script>
+        // Initialize systems
+        let botDetector, analyticsMonitor;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof BotDetector !== 'undefined') {
+                botDetector = new BotDetector();
+            }
+            if (typeof AnalyticsMonitor !== 'undefined') {
+                analyticsMonitor = new AnalyticsMonitor();
+            }
+        });
+
+        function testBotDetection() {
+            const resultsDiv = document.getElementById('bot-detection-results');
+            
+            if (!botDetector) {
+                resultsDiv.innerHTML = '<div class="result error">Bot detector not initialized</div>';
+                return;
+            }
+
+            const detection = botDetector.getDetectionResults();
+            const stats = botDetector.getBotStatistics();
+
+            resultsDiv.innerHTML = `
+                <div class="result success">
+                    <h3>Detection Results</h3>
+                    <p><strong>Is Bot:</strong> ${detection.isBot}</p>
+                    <p><strong>Bot Type:</strong> ${detection.botType}</p>
+                    <p><strong>Confidence:</strong> ${detection.confidence.toFixed(1)}%</p>
+                    <p><strong>User Agent:</strong> ${detection.userAgent}</p>
+                </div>
+                <div class="result">
+                    <h3>Bot Statistics</h3>
+                    <p><strong>Total Bot Visits:</strong> ${stats.totalVisits}</p>
+                    <p><strong>Unique Bot Types:</strong> ${stats.uniqueBots}</p>
+                    <p><strong>Bot Types:</strong></p>
+                    <pre>${JSON.stringify(stats.botTypes, null, 2)}</pre>
+                </div>
+            `;
+        }
+
+        function testAnalyticsMonitor() {
+            const resultsDiv = document.getElementById('analytics-results');
+            
+            if (!analyticsMonitor) {
+                resultsDiv.innerHTML = '<div class="result error">Analytics monitor not initialized</div>';
+                return;
+            }
+
+            const dashboardData = analyticsMonitor.getDashboardData();
+
+            resultsDiv.innerHTML = `
+                <div class="result success">
+                    <h3>Analytics Summary</h3>
+                    <p><strong>Performance Score:</strong> ${dashboardData.summary.performanceScore}</p>
+                    <p><strong>SEO Score:</strong> ${dashboardData.summary.seoScore}</p>
+                    <p><strong>Total Alerts:</strong> ${dashboardData.summary.totalAlerts}</p>
+                    <p><strong>Critical Alerts:</strong> ${dashboardData.summary.criticalAlerts}</p>
+                </div>
+                <div class="result">
+                    <h3>Recent Alerts</h3>
+                    ${dashboardData.alerts.slice(0, 3).map(alert => `
+                        <p><strong>${alert.category}:</strong> ${alert.message} (${alert.severity})</p>
+                    `).join('') || '<p>No alerts</p>'}
+                </div>
+            `;
+        }
+
+        function testPerformanceMetrics() {
+            const resultsDiv = document.getElementById('performance-results');
+            
+            if (!analyticsMonitor) {
+                resultsDiv.innerHTML = '<div class="result error">Analytics monitor not initialized</div>';
+                return;
+            }
+
+            const metrics = analyticsMonitor.metrics.performance;
+
+            resultsDiv.innerHTML = `
+                <div class="result success">
+                    <h3>Performance Metrics</h3>
+                    <p><strong>LCP:</strong> ${metrics.lcp ? metrics.lcp.toFixed(2) + 'ms' : 'Not measured'}</p>
+                    <p><strong>FCP:</strong> ${metrics.fcp ? metrics.fcp.toFixed(2) + 'ms' : 'Not measured'}</p>
+                    <p><strong>CLS:</strong> ${metrics.cls ? metrics.cls.toFixed(3) : 'Not measured'}</p>
+                    <p><strong>FID:</strong> ${metrics.fid ? metrics.fid.toFixed(2) + 'ms' : 'Not measured'}</p>
+                    <p><strong>JS Size:</strong> ${metrics.jsSize ? (metrics.jsSize / 1024).toFixed(2) + 'KB' : 'Not measured'}</p>
+                    <p><strong>CSS Size:</strong> ${metrics.cssSize ? (metrics.cssSize / 1024).toFixed(2) + 'KB' : 'Not measured'}</p>
+                </div>
+            `;
+        }
+
+        function testSEOHealth() {
+            const resultsDiv = document.getElementById('seo-results');
+            
+            if (!analyticsMonitor) {
+                resultsDiv.innerHTML = '<div class="result error">Analytics monitor not initialized</div>';
+                return;
+            }
+
+            const seo = analyticsMonitor.metrics.seo;
+
+            resultsDiv.innerHTML = `
+                <div class="result success">
+                    <h3>SEO Health</h3>
+                    <p><strong>Meta Tags:</strong></p>
+                    <pre>${JSON.stringify(seo.metaTags, null, 2)}</pre>
+                    <p><strong>Structured Data:</strong> ${seo.structuredData ? seo.structuredData.count + ' schemas' : 'Not checked'}</p>
+                    <p><strong>Headings:</strong> ${seo.headings ? seo.headings.total + ' total, ' + seo.headings.h1Count + ' H1s' : 'Not checked'}</p>
+                    <p><strong>Images:</strong> ${seo.images ? seo.images.total + ' total, ' + seo.images.issues.length + ' issues' : 'Not checked'}</p>
+                    <p><strong>Canonical URL:</strong> ${seo.canonical ? (seo.canonical.present ? 'Present' : 'Missing') : 'Not checked'}</p>
+                </div>
+            `;
+        }
+
+        function testContentInsights() {
+            const resultsDiv = document.getElementById('content-results');
+            
+            if (!analyticsMonitor) {
+                resultsDiv.innerHTML = '<div class="result error">Analytics monitor not initialized</div>';
+                return;
+            }
+
+            const insights = analyticsMonitor.contentInsights;
+            const insightsArray = Array.from(insights.values());
+
+            resultsDiv.innerHTML = `
+                <div class="result success">
+                    <h3>Content Insights</h3>
+                    <p><strong>Tracked Pages:</strong> ${insightsArray.length}</p>
+                    ${insightsArray.slice(0, 5).map(page => `
+                        <div style="margin: 10px 0; padding: 10px; background: #f9fafb; border-radius: 4px;">
+                            <p><strong>Path:</strong> ${page.path}</p>
+                            <p><strong>Visits:</strong> ${page.visits} (${page.botVisits} bots, ${page.humanVisits} humans)</p>
+                            <p><strong>Last Visit:</strong> ${new Date(page.lastVisit).toLocaleString()}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function showStoredData() {
+            const resultsDiv = document.getElementById('stored-data-results');
+            
+            const botVisits = localStorage.getItem('botVisits');
+            const alerts = localStorage.getItem('analyticsAlerts');
+            const insights = localStorage.getItem('contentInsights');
+            const errors = localStorage.getItem('analyticsErrors');
+
+            resultsDiv.innerHTML = `
+                <div class="result">
+                    <h3>Stored Data</h3>
+                    <p><strong>Bot Visits:</strong> ${botVisits ? JSON.parse(botVisits).length + ' entries' : 'None'}</p>
+                    <p><strong>Alerts:</strong> ${alerts ? JSON.parse(alerts).length + ' entries' : 'None'}</p>
+                    <p><strong>Content Insights:</strong> ${insights ? Object.keys(JSON.parse(insights)).length + ' pages' : 'None'}</p>
+                    <p><strong>Errors:</strong> ${errors ? JSON.parse(errors).length + ' entries' : 'None'}</p>
+                    
+                    ${botVisits ? `
+                        <h4>Recent Bot Visits:</h4>
+                        <pre>${JSON.stringify(JSON.parse(botVisits).slice(-3), null, 2)}</pre>
+                    ` : ''}
+                </div>
+            `;
+        }
+
+        function clearStoredData() {
+            localStorage.removeItem('botVisits');
+            localStorage.removeItem('analyticsAlerts');
+            localStorage.removeItem('contentInsights');
+            localStorage.removeItem('analyticsErrors');
+            localStorage.removeItem('analyticsInsights');
+            
+            document.getElementById('stored-data-results').innerHTML = 
+                '<div class="result success">All stored data cleared</div>';
+        }
+
+        // Simulate some user interactions for testing
+        function simulateInteractions() {
+            // Simulate mouse movements
+            document.dispatchEvent(new MouseEvent('mousemove', { clientX: 100, clientY: 100 }));
+            
+            // Simulate scroll
+            window.dispatchEvent(new Event('scroll'));
+            
+            // Simulate click
+            document.dispatchEvent(new MouseEvent('click', { clientX: 200, clientY: 200 }));
+        }
+
+        // Run simulation after a short delay
+        setTimeout(simulateInteractions, 1000);
+    </script>
+
+</body></html>

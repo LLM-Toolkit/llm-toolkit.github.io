@@ -1,0 +1,545 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Tools &amp; AI Resources Hub - Comprehensive Guide for Developers</title>
+    <meta name="description" content="Discover comprehensive guides, comparisons, and resources for LLM tools, AI development, and machine learning. Expert insights on GGUF Loader desktop application with floating assistant, LM Studio, Ollama, and more.">
+    <meta name="keywords" content="LLM tools, AI development, machine learning, GGUF Loader, desktop application, floating assistant, offline chat UI, LM Studio, Ollama, artificial intelligence, developer resources">
+    <link rel="canonical" href="https://llm-toolkit.github.io/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://llm-toolkit.github.io/">
+    <meta property="og:title" content="LLM Tools &amp; AI Resources Hub - Comprehensive Guide for Developers">
+    <meta property="og:description" content="Discover comprehensive guides, comparisons, and resources for LLM tools, AI development, and machine learning. Features GGUF Loader desktop application with floating assistant.">
+    <meta property="og:image" content="https://llm-toolkit.github.io/assets/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://llm-toolkit.github.io/">
+    <meta property="twitter:title" content="LLM Tools &amp; AI Resources Hub - Comprehensive Guide for Developers">
+    <meta property="twitter:description" content="Discover comprehensive guides, comparisons, and resources for LLM tools, AI development, and machine learning. Features GGUF Loader desktop application with floating assistant."
+    <meta property="twitter:image" content="https://llm-toolkit.github.io/assets/images/twitter-image.jpg">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "LLM Tools & AI Resources Hub",
+        "description": "Comprehensive guide and resources for LLM tools, AI development, and machine learning",
+        "url": "https://llm-toolkit.github.io/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://llm-toolkit.github.io/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "LLM Tools Hub"
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "name": "LLM Tools and Resources",
+            "description": "Comprehensive collection of LLM tools, guides, and comparisons",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "Article",
+                        "name": "LLM Implementation Guide",
+                        "url": "https://llm-toolkit.github.io/documents/llm-guide.html"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                        "@type": "Article",
+                        "name": "AI Tools Overview",
+                        "url": "https://llm-toolkit.github.io/documents/ai-tools-overview.html"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "item": {
+                        "@type": "Review",
+                        "name": "GGUF Loader vs LM Studio Comparison",
+                        "url": "https://llm-toolkit.github.io/comparisons/ggufloader-vs-lmstudio.html",
+                        "description": "Comparison between GGUF Loader desktop application with floating assistant and LM Studio"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+
+    <!-- Critical CSS inlined for performance - Above the fold styles only -->
+    <style>
+        /* Critical above-the-fold styles - Minified for performance */
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{font-size:16px;line-height:1.6;scroll-behavior:smooth}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;color:#333;background-color:#fff;overflow-x:hidden}
+        header{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;padding:1rem 0;position:relative;z-index:10}
+        .header-container{max-width:1200px;margin:0 auto;padding:0 1rem}
+        header h1{font-size:2.5rem;margin-bottom:0.5rem;font-weight:700;text-shadow:0 1px 2px rgba(0,0,0,0.1)}
+        .tagline{font-size:1.1rem;opacity:0.9;margin-bottom:1rem}
+        .main-nav ul{list-style:none;display:flex;gap:2rem;flex-wrap:wrap}
+        .main-nav a{color:white;text-decoration:none;font-weight:500;padding:0.5rem 1rem;border-radius:4px;transition:background-color 0.3s ease,transform 0.2s ease}
+        .main-nav a:hover,.main-nav a:focus{background-color:rgba(255,255,255,0.2);transform:translateY(-1px)}
+        .main-nav a[aria-current="page"]{background-color:rgba(255,255,255,0.3)}
+        .breadcrumb{background-color:#f8f9fa;padding:0.5rem 0;border-bottom:1px solid #e9ecef}
+        .breadcrumb ol{max-width:1200px;margin:0 auto;padding:0 1rem;list-style:none;display:flex;gap:0.5rem;align-items:center}
+        .breadcrumb li:not(:last-child)::after{content:" / ";margin-left:0.5rem;color:#6c757d}
+        .breadcrumb a{color:#007bff;text-decoration:none;transition:color 0.2s ease}
+        .breadcrumb a:hover{color:#0056b3}
+        main{max-width:1200px;margin:0 auto;padding:0 1rem}
+        .hero-section{text-align:center;padding:3rem 0;background:linear-gradient(135deg,#f5f7fa 0%,#c3cfe2 100%);margin:2rem -1rem;border-radius:8px;position:relative;overflow:hidden}
+        .hero-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');opacity:0.3;pointer-events:none}
+        .hero-section h2{font-size:2.5rem;margin-bottom:1rem;color:#2c3e50;position:relative;z-index:1}
+        .hero-description{font-size:1.2rem;margin-bottom:2rem;max-width:800px;margin-left:auto;margin-right:auto;color:#5a6c7d;position:relative;z-index:1}
+        .hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+        .cta-primary,.cta-secondary{padding:0.75rem 1.5rem;text-decoration:none;border-radius:6px;font-weight:600;transition:all 0.3s ease;position:relative;overflow:hidden}
+        .cta-primary{background-color:#007bff;color:white;box-shadow:0 2px 4px rgba(0,123,255,0.3)}
+        .cta-primary:hover{background-color:#0056b3;transform:translateY(-2px);box-shadow:0 4px 8px rgba(0,123,255,0.4)}
+        .cta-secondary{background-color:transparent;color:#007bff;border:2px solid #007bff}
+        .cta-secondary:hover{background-color:#007bff;color:white;transform:translateY(-2px)}
+        .hero-image-container{margin-bottom:2rem;position:relative;z-index:1}
+        .hero-image-container img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:transform 0.3s ease}
+        .hero-image-container img:hover{transform:scale(1.02)}
+        .lazy-load{opacity:0;transition:opacity 0.5s ease,transform 0.3s ease}
+        .lazy-load.loaded{opacity:1}
+        .lazy-load.fade-in{animation:fadeInUp 0.6s ease-out forwards}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        .features-section{padding:3rem 0}
+        .features-section h2{text-align:center;font-size:2.2rem;margin-bottom:2rem;color:#2c3e50}
+        @media (max-width:768px){header h1{font-size:2rem}.hero-section h2{font-size:2rem}.hero-cta{flex-direction:column;align-items:center}.main-nav ul{flex-direction:column;gap:0.5rem}.hero-image-container img{max-width:300px}}
+        @media (prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}}
+    </style>
+    
+    <!-- Enhanced resource preloading for optimal performance -->
+    <link rel="preload" href="assets/css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/styles.css"></noscript>
+    <link rel="preload" href="assets/css/search-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/search-styles.css"></noscript>
+    
+    <!-- Preload critical JavaScript in order of importance -->
+    <link rel="preload" href="assets/js/performance-optimizer.js" as="script">
+    <link rel="preload" href="assets/js/lazy-loading.js" as="script">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    <link rel="preload" href="assets/js/seo-meta-generator.js" as="script">
+    
+    <!-- Preload hero image for faster LCP (Largest Contentful Paint) -->
+    <link rel="preload" href="assets/images/hero-ai-illustration.png" as="image" type="image/png" media="(min-width: 768px)">
+    <link rel="preload" href="assets/images/hero-ai-illustration.png" as="image" type="image/png" media="(max-width: 767px)">
+    
+    <!-- Preload feature icons for above-the-fold content -->
+    <link rel="preload" href="assets/images/documentation-icon.png" as="image" type="image/png">
+    <link rel="preload" href="assets/images/comparison-icon.png" as="image" type="image/png">
+    <link rel="preload" href="assets/images/ai-tools-icon.png" as="image" type="image/png">
+    
+    <!-- Prefetch key pages users are likely to visit next -->
+    <link rel="prefetch" href="documents/llm-guide.html">
+    <link rel="prefetch" href="comparisons/ggufloader-vs-lmstudio.html">
+    <link rel="prefetch" href="documents/ai-tools-overview.html">
+    <link rel="prefetch" href="comparisons/ollama-comparison.html">
+    
+    <!-- Preconnect to external font services -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    
+    <!-- DNS prefetch for external resources and CDNs -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <!-- Preload critical web font if using custom fonts -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin="">
+    
+    <!-- Module preload for modern browsers -->
+    <link rel="modulepreload" href="assets/js/performance-optimizer.js">
+    
+    <!-- Preload manifest for PWA capabilities -->
+    <link rel="preload" href="manifest.json" as="fetch" crossorigin="">
+    
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <header role="banner">
+        <div class="header-container">
+            <h1>LLM Tools &amp; AI Resources Hub</h1>
+            <p class="tagline">Your comprehensive guide to AI development tools and machine learning resources</p>
+            <nav role="navigation" aria-label="Main site navigation">
+                <ul class="main-nav">
+                    <li><a href="/" aria-current="page" title="Homepage - LLM Tools Hub">Home</a></li>
+                    <li><a href="documents/" title="Comprehensive documentation and guides for LLM tools">Documentation &amp; Guides</a></li>
+                    <li><a href="comparisons/" title="Detailed comparisons between popular LLM tools">Tool Comparisons</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <nav aria-label="Breadcrumb navigation" class="breadcrumb">
+        <ol>
+            <li><a href="/" title="Return to homepage">Home</a></li>
+            <li aria-current="page">LLM Tools &amp; AI Resources Hub</li>
+        </ol>
+    </nav>
+
+    <main role="main" id="main-content" aria-label="Main content">
+        <section class="hero-section" aria-labelledby="hero-heading" role="banner">
+            <div class="hero-image-container">
+                <img data-src="assets/images/hero-ai-illustration.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8f9fa'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236c757d'%3EAI Tools Illustration%3C/text%3E%3C/svg%3E" alt="AI and LLM tools illustration showing interconnected neural networks and development frameworks" width="400" height="200" loading="lazy">
+            </div>
+            <h2 id="hero-heading">Your Complete Guide to LLM Tools and AI Development</h2>
+            <p class="hero-description">Explore comprehensive resources, detailed comparisons, and expert insights on the latest LLM tools and AI development frameworks. Perfect for developers, researchers, and AI enthusiasts looking to leverage cutting-edge artificial intelligence technologies.</p>
+            <div class="hero-cta">
+                <a href="documents/llm-guide.html" class="cta-primary" title="Start with our comprehensive LLM implementation guide">Get Started with LLM Guide</a>
+                <a href="comparisons/" class="cta-secondary" title="Compare popular LLM tools to find the best fit">Compare Tools</a>
+            </div>
+        </section>
+
+        <!-- Daily Freshness Indicator -->
+        <div class="daily-update-banner" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; margin: 1rem 0; border-radius: 8px; text-align: center;">
+            <p style="margin: 0; font-size: 0.9rem;">
+                <strong>📅 July 28, 2025</strong> | 🔧 Developer Focus: API rate limiting strategies are crucial for production LLM applications.
+            </p>
+        </div>
+
+        <section class="features-section" aria-labelledby="features-heading" role="region">
+            <h2 id="features-heading">What You'll Find Here</h2>
+            <div class="features-grid" role="list" aria-label="Site features">
+                <article class="feature-card" role="listitem" aria-labelledby="feature-docs-heading">
+                    <div class="feature-image">
+                        <img data-src="assets/images/documentation-icon.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='100%25' height='100%25' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236c757d'%3E📚%3C/text%3E%3C/svg%3E" alt="Documentation icon representing comprehensive guides and tutorials" width="80" height="80" loading="lazy" role="img">
+                    </div>
+                    <h3 id="feature-docs-heading">Comprehensive Documentation</h3>
+                    <p>In-depth guides covering LLM implementation, AI tool usage, and machine learning fundamentals. Learn from beginner basics to advanced techniques.</p>
+                    <nav aria-label="Documentation links">
+                        <ul>
+                            <li><a href="documents/llm-guide.html" title="Complete guide to Large Language Model implementation and usage">Complete LLM Implementation Guide</a></li>
+                            <li><a href="documents/machine-learning-basics.html" title="Fundamental concepts and principles of machine learning">Machine Learning Fundamentals</a></li>
+                        </ul>
+                    </nav>
+                </article>
+
+                <article class="feature-card" role="listitem" aria-labelledby="feature-comparison-heading">
+                    <div class="feature-image">
+                        <img data-src="assets/images/comparison-icon.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='100%25' height='100%25' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236c757d'%3E⚖️%3C/text%3E%3C/svg%3E" alt="Comparison icon representing tool analysis and evaluation" width="80" height="80" loading="lazy" role="img">
+                    </div>
+                    <h3 id="feature-comparison-heading">Tool Comparisons</h3>
+                    <p>Detailed comparisons between popular LLM tools to help you choose the right solution for your project. Compare features, performance, and use cases.</p>
+                    <nav aria-label="Tool comparison links">
+                        <ul>
+                            <li><a href="comparisons/ggufloader-vs-lmstudio.html" title="Detailed comparison between GGUF Loader desktop application with floating assistant and LM Studio">GGUF Loader vs LM Studio Comparison</a></li>
+                            <li><a href="comparisons/ollama-comparison.html" title="Comprehensive comparison of Ollama with other LLM tools">Ollama Tool Comparison</a></li>
+                        </ul>
+                    </nav>
+                </article>
+
+                <article class="feature-card" role="listitem" aria-labelledby="feature-tools-heading">
+                    <div class="feature-image">
+                        <img data-src="assets/images/ai-tools-icon.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='100%25' height='100%25' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236c757d'%3E🛠️%3C/text%3E%3C/svg%3E" alt="AI tools icon representing development frameworks and utilities" width="80" height="80" loading="lazy" role="img">
+                    </div>
+                    <h3 id="feature-tools-heading">AI Tools Overview</h3>
+                    <p>Comprehensive overview of available AI development tools and their use cases. Discover the best tools for your AI development workflow.</p>
+                    <nav aria-label="AI tools links">
+                        <ul>
+                            <li><a href="documents/ai-tools-overview.html" title="Comprehensive overview of AI development tools and frameworks">AI Development Tools Overview</a></li>
+                        </ul>
+                    </nav>
+                </article>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="search-section" aria-labelledby="search-heading" role="search">
+            <div class="search-container">
+                <h2 id="search-heading">Search Our Resources</h2>
+                <p class="search-description">Find specific information about LLM tools, AI development, and machine learning topics.</p>
+                
+                <div class="search-input-group">
+                    <input 
+                        type="search" 
+                        id="main-search" 
+                        class="search-input" 
+                        placeholder="Search for LLM tools, guides, comparisons..."
+                        aria-label="Search site content"
+                        autocomplete="off"
+                    >
+                    <button type="button" class="search-button" aria-label="Search" onclick="performSearch()">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="search-help">
+                    Try searching for: "LLM implementation", "tool comparison", "machine learning basics"
+                </div>
+                
+                <div id="search-results" class="search-results" role="region" aria-live="polite" aria-label="Search results">
+                    <div class="search-results-header">
+                        <p id="search-results-count">Search results will appear here</p>
+                    </div>
+                    <div id="search-results-list" class="search-results-list"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resources-section" aria-labelledby="resources-heading" role="region">
+            <h2 id="resources-heading">Featured Resources</h2>
+            <p class="resources-intro">Quick access to our most popular and comprehensive resources for LLM development and AI tool selection.</p>
+            <nav aria-label="Featured resource navigation" role="navigation">
+                <ul class="resources-list" role="list">
+                    <li role="listitem">
+                        <a href="documents/machine-learning-basics.html" title="Learn fundamental machine learning concepts and principles" aria-describedby="ml-basics-desc">
+                            <strong>Machine Learning Basics</strong>
+                            <span class="resource-description" id="ml-basics-desc">Essential concepts for understanding AI and ML fundamentals</span>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="comparisons/ollama-comparison.html" title="Compare Ollama with other popular LLM tools and frameworks" aria-describedby="ollama-comp-desc">
+                            <strong>Ollama Tool Comparison</strong>
+                            <span class="resource-description" id="ollama-comp-desc">Comprehensive analysis of Ollama vs competing tools</span>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="documents/ai-tools-overview.html" title="Explore comprehensive overview of AI development tools" aria-describedby="ai-tools-desc">
+                            <strong>AI Tools Overview</strong>
+                            <span class="resource-description" id="ai-tools-desc">Complete guide to available AI development frameworks</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+        <aside class="related-content" aria-labelledby="related-heading" role="complementary">
+            <h2 id="related-heading">Popular Content</h2>
+            <nav aria-label="Popular content navigation" role="navigation">
+                <ul class="related-links" role="list">
+                    <li role="listitem">
+                        <a href="documents/llm-guide.html" title="Complete guide to implementing Large Language Models" aria-describedby="llm-guide-desc">
+                            <h3>LLM Implementation Guide</h3>
+                            <p id="llm-guide-desc">Step-by-step guide to implementing and optimizing Large Language Models</p>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="comparisons/ggufloader-vs-lmstudio.html" title="Detailed comparison of GGUF Loader desktop application with floating assistant and LM Studio" aria-describedby="gguf-comp-desc">
+                            <h3>GGUF Loader vs LM Studio</h3>
+                            <p id="gguf-comp-desc">Comprehensive comparison of desktop applications with offline chat UI and floating assistant features</p>
+                        </a>
+                    </li>
+                    <li role="listitem">
+                        <a href="documents/ai-tools-overview.html" title="Overview of AI development tools and frameworks" aria-describedby="ai-dev-tools-desc">
+                            <h3>AI Development Tools</h3>
+                            <p id="ai-dev-tools-desc">Complete overview of tools and frameworks for AI development</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <nav aria-label="Footer quick links">
+                    <ul>
+                        <li><a href="documents/llm-guide.html" title="Comprehensive guide to LLM implementation">LLM Implementation Guide</a></li>
+                        <li><a href="documents/ai-tools-overview.html" title="Overview of AI development tools">AI Tools Overview</a></li>
+                        <li><a href="documents/machine-learning-basics.html" title="Machine learning fundamentals">ML Basics</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h3>Tool Comparisons</h3>
+                <nav aria-label="Footer comparison links">
+                    <ul>
+                        <li><a href="comparisons/ggufloader-vs-lmstudio.html" title="Compare GGUF Loader desktop application with floating assistant and LM Studio">GGUF Loader vs LM Studio</a></li>
+                        <li><a href="comparisons/ollama-comparison.html" title="Ollama tool comparison">Ollama Comparison</a></li>
+                    </ul>
+                </nav>
+                <h4>External Tool Links</h4>
+                <nav aria-label="External tool links">
+                    <ul>
+                        <li><a href="https://ggufloader.github.io" title="Visit GGUF Loader official website" target="_blank" rel="noopener">GGUF Loader</a></li>
+                        <li><a href="https://lmstudio.ai" title="Visit LM Studio official website" target="_blank" rel="noopener">LM Studio</a></li>
+                        <li><a href="https://ollama.com" title="Visit Ollama official website" target="_blank" rel="noopener">Ollama</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer-section">
+                <h3>Site Information</h3>
+                <nav aria-label="Site information links">
+                    <ul>
+                        <li><a href="/sitemap.xml" title="XML sitemap for search engines">XML Sitemap</a></li>
+                        <li><a href="/robots.txt" title="Robots.txt file for web crawlers">Robots.txt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 LLM Tools &amp; AI Resources Hub. Optimized for search engines and AI systems.</p>
+        </div>
+    </footer>
+
+    <!-- Critical performance scripts loaded first -->
+    <script src="assets/js/performance-optimizer.js"></script>
+    <script src="assets/js/lazy-loading.js"></script>
+    <script src="assets/js/image-optimizer.js"></script>
+    <script src="assets/js/accessibility-enhancer.js"></script>
+    <script src="assets/js/service-worker-registration.js"></script>
+    
+    <!-- Core functionality scripts -->
+    <script src="assets/js/canonical-url-manager.js"></script>
+    <script src="assets/js/seo-meta-generator.js"></script>
+    <script src="assets/js/structured-data-generator.js"></script>
+    <script src="assets/js/robots-sitemap-generator.js"></script>
+    <script src="assets/js/bot-detector.js"></script>
+    <script src="assets/js/analytics-monitor.js"></script>
+    
+    <!-- Search functionality -->
+    <script src="assets/js/search-engine.js"></script>
+    <script src="assets/js/search-integration.js"></script>
+    <script src="assets/js/search-engine.js"></script>
+    
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Initialize search functionality
+        function performSearch() {
+            const searchInput = document.getElementById('main-search');
+            const query = searchInput.value.trim();
+            
+            if (query.length < 2) {
+                hideSearchResults();
+                return;
+            }
+            
+            // Show loading state
+            showSearchLoading();
+            
+            // Simulate search (replace with actual search logic)
+            setTimeout(() => {
+                const results = searchContent(query);
+                displaySearchResults(results, query);
+            }, 300);
+        }
+        
+        function searchContent(query) {
+            const searchData = [
+                {
+                    title: "Complete LLM Implementation Guide",
+                    url: "documents/llm-guide.html",
+                    description: "Comprehensive guide to implementing Large Language Models with practical examples and best practices.",
+                    type: "Guide"
+                },
+                {
+                    title: "AI Tools Overview",
+                    url: "documents/ai-tools-overview.html", 
+                    description: "Comprehensive overview of AI development tools and frameworks for developers.",
+                    type: "Overview"
+                },
+                {
+                    title: "Machine Learning Basics",
+                    url: "documents/machine-learning-basics.html",
+                    description: "Essential machine learning concepts and fundamentals for beginners and professionals.",
+                    type: "Tutorial"
+                },
+                {
+                    title: "GGUF Loader vs LM Studio Comparison",
+                    url: "comparisons/ggufloader-vs-lmstudio.html",
+                    description: "Detailed comparison between GGUF Loader desktop application with floating assistant and LM Studio for local LLM management.",
+                    type: "Comparison"
+                },
+                {
+                    title: "Ollama Tool Comparison",
+                    url: "comparisons/ollama-comparison.html",
+                    description: "In-depth comparison of Ollama with other LLM tools and platforms.",
+                    type: "Comparison"
+                }
+            ];
+            
+            return searchData.filter(item => 
+                item.title.toLowerCase().includes(query.toLowerCase()) ||
+                item.description.toLowerCase().includes(query.toLowerCase())
+            );
+        }
+        
+        function showSearchLoading() {
+            const resultsContainer = document.getElementById('search-results');
+            const resultsList = document.getElementById('search-results-list');
+            const resultsCount = document.getElementById('search-results-count');
+            
+            resultsCount.innerHTML = '🔍 Searching...';
+            resultsList.innerHTML = '<div style="padding: 2rem; text-align: center; color: #6c757d;">Searching for relevant content...</div>';
+            resultsContainer.style.display = 'block';
+        }
+        
+        function displaySearchResults(results, query) {
+            const resultsContainer = document.getElementById('search-results');
+            const resultsList = document.getElementById('search-results-list');
+            const resultsCount = document.getElementById('search-results-count');
+            
+            if (results.length === 0) {
+                resultsCount.innerHTML = `No results found for "${query}"`;
+                resultsList.innerHTML = '<div style="padding: 2rem; text-align: center; color: #6c757d;">Try different keywords or browse our featured resources below.</div>';
+            } else {
+                resultsCount.innerHTML = `Found ${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"`;
+                resultsList.innerHTML = results.map(result => `
+                    <div class="search-result-item" onclick="window.location.href='${result.url}'">
+                        <div class="search-result-header">
+                            <h3 class="search-result-title">
+                                <a href="${result.url}">${result.title}</a>
+                            </h3>
+                            <span class="search-result-type">${result.type}</span>
+                        </div>
+                        <p class="search-result-description">${result.description}</p>
+                        <div class="search-result-url">${result.url}</div>
+                    </div>
+                `).join('');
+            }
+            
+            resultsContainer.style.display = 'block';
+        }
+        
+        function hideSearchResults() {
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.style.display = 'none';
+        }
+        
+        // Add search on Enter key
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('main-search');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+                
+                // Search as user types (debounced)
+                let searchTimeout;
+                searchInput.addEventListener('input', function() {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        if (this.value.trim().length >= 2) {
+                            performSearch();
+                        } else {
+                            hideSearchResults();
+                        }
+                    }, 500);
+                });
+            }
+        });
+    </script>
+
+
+</body></html>

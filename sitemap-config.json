@@ -1,0 +1,54 @@
+{
+  "siteUrl": "https://llm-toolkit.github.io",
+  "siteName": "LLM Tools & AI Resources Hub",
+  "crawlDelay": 1,
+  "defaultChangefreq": "monthly",
+  "allowedBots": [
+    "*",
+    "Googlebot",
+    "Bingbot",
+    "Slurp",
+    "DuckDuckBot",
+    "Baiduspider",
+    "YandexBot",
+    "GPTBot",
+    "ChatGPT-User",
+    "CCBot",
+    "anthropic-ai",
+    "Claude-Web",
+    "PerplexityBot",
+    "YouBot"
+  ],
+  "disallowedPaths": [
+    "/admin/",
+    "/private/",
+    "/.git/",
+    "/node_modules/",
+    "/.kiro/",
+    "/scripts/"
+  ],
+  "allowedPaths": [
+    "/assets/",
+    "/robots.txt",
+    "/sitemap*.xml"
+  ],
+  "pageTypes": {
+    "homepage": {
+      "priority": "1.0",
+      "changefreq": "weekly"
+    },
+    "document": {
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    "comparison": {
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    "page": {
+      "priority": "0.7",
+      "changefreq": "monthly"
+    }
+  },
+  "lastUpdated": "2025-07-28T07:54:48.702Z"
+}

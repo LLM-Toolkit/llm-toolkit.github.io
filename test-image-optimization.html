@@ -1,0 +1,121 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Optimization Test</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .test-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+        }
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .stats-display {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        .stats-display pre {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+<meta name="description" content="Information about test image-optimization for AI and LLM development."><link rel="canonical" href="https://your-domain.com/test-image-optimization.html"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Test Image-Optimization",
+  "description": "Information about test image-optimization for AI and LLM development.",
+  "url": "https://your-domain.com/test-image-optimization.html"
+}</script><meta property="og:title" content="Test Image-Optimization"><meta property="og:description" content="Information about test image-optimization for AI and LLM development."><meta property="og:url" content="https://your-domain.com/test-image-optimization.html"><meta property="og:type" content="website"><meta property="og:site_name" content="SEO LLM Bot Website"></head>
+<body>
+    <div class="test-container">
+        <h1>Image Optimization System Test</h1>
+        
+        <div class="test-section">
+            <h2>Hero Image Test</h2>
+            <div class="hero-image-container">
+                <img data-src="assets/images/hero-ai-illustration.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f8f9fa'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236c757d'%3EHero AI Illustration%3C/text%3E%3C/svg%3E" width="400" height="200" loading="lazy" data-critical="true" alt="Descriptive image">
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Feature Icons Test</h2>
+            <div class="test-grid">
+                <div class="feature-image">
+                    <img data-src="assets/images/documentation-icon.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='100%25' height='100%25' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236c757d'%3E📚%3C/text%3E%3C/svg%3E" width="80" height="80" loading="lazy" alt="Descriptive image">
+                </div>
+                <div class="feature-image">
+                    <img data-src="assets/images/comparison-icon.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='100%25' height='100%25' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236c757d'%3E⚖️%3C/text%3E%3C/svg%3E" width="80" height="80" loading="lazy" alt="Descriptive image">
+                </div>
+                <div class="feature-image">
+                    <img data-src="assets/images/ai-tools-icon.png" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='100%25' height='100%25' fill='%23e9ecef'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236c757d'%3E🛠️%3C/text%3E%3C/svg%3E" width="80" height="80" loading="lazy" alt="Descriptive image">
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Progressive Loading Test</h2>
+            <img data-progressive="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect width='100%25' height='100%25' fill='%23f0f0f0'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%23999'%3ELow Quality Placeholder%3C/text%3E%3C/svg%3E" data-src="assets/images/hero-ai-illustration.png" width="400" height="200" loading="lazy" alt="Image">
+        </div>
+
+        <div class="test-section">
+            <h2>Dynamic Image Test</h2>
+            <button onclick="addNewImage()">Add New Image</button>
+            <div id="dynamic-images"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Optimization Stats</h2>
+            <button onclick="showStats()">Show Current Stats</button>
+            <div id="stats-display" class="stats-display" style="display: none;">
+                <pre id="stats-content"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/image-optimizer.js"></script>
+    <script>
+        function addNewImage() {
+            const container = document.getElementById('dynamic-images');
+            const img = document.createElement('img');
+            img.dataset.src = 'assets/images/hero-ai-illustration.png';
+            img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='150'%3E%3Crect width='100%25' height='100%25' fill='%23f8f9fa'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='%236c757d'%3EDynamic Image%3C/text%3E%3C/svg%3E";
+            img.width = 300;
+            img.height = 150;
+            img.loading = 'lazy';
+            img.style.margin = '1rem';
+            container.appendChild(img);
+        }
+
+        function showStats() {
+            if (window.imageOptimizer) {
+                const stats = window.imageOptimizer.getOptimizationStats();
+                document.getElementById('stats-content').textContent = JSON.stringify(stats, null, 2);
+                document.getElementById('stats-display').style.display = 'block';
+            } else {
+                document.getElementById('stats-content').textContent = 'Image optimizer not initialized yet';
+                document.getElementById('stats-display').style.display = 'block';
+            }
+        }
+
+        // Test connection type detection
+        console.log('Connection type detected:', navigator.connection ? {
+            effectiveType: navigator.connection.effectiveType,
+            downlink: navigator.connection.downlink,
+            saveData: navigator.connection.saveData
+        } : 'Not supported');
+    </script>
+
+</body></html>

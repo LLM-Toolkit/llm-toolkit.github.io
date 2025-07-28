@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Optimization Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 4px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+    </style>
+<meta name="description" content="Information about test performance for AI and LLM development."><link rel="canonical" href="https://your-domain.com/test-performance.html"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Test Performance",
+  "description": "Information about test performance for AI and LLM development.",
+  "url": "https://your-domain.com/test-performance.html"
+}</script><meta property="og:title" content="Test Performance"><meta property="og:description" content="Information about test performance for AI and LLM development."><meta property="og:url" content="https://your-domain.com/test-performance.html"><meta property="og:type" content="website"><meta property="og:site_name" content="SEO LLM Bot Website"></head>
+<body>
+    <h1>Performance Optimization Test</h1>
+    <div id="test-results"></div>
+
+    <script>
+        const results = document.getElementById('test-results');
+        
+        function addResult(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.textContent = message;
+            results.appendChild(div);
+        }
+
+        // Test critical CSS inlining
+        const criticalCSS = document.querySelector('style');
+        if (criticalCSS) {
+            addResult('✓ Critical CSS inlining: Found inline styles', 'success');
+        } else {
+            addResult('✗ Critical CSS inlining: No inline styles found', 'error');
+        }
+
+        // Test resource preloading
+        const preloadLinks = document.querySelectorAll('link[rel="preload"]');
+        if (preloadLinks.length > 0) {
+            addResult(`✓ Resource preloading: Found ${preloadLinks.length} preload hints`, 'success');
+        } else {
+            addResult('✗ Resource preloading: No preload hints found', 'error');
+        }
+
+        // Test lazy loading setup
+        if (typeof LazyLoader !== 'undefined') {
+            addResult('✓ Lazy loading: LazyLoader class available', 'success');
+        } else {
+            addResult('✗ Lazy loading: LazyLoader class not found', 'error');
+        }
+
+        // Test performance optimizer
+        if (typeof PerformanceOptimizer !== 'undefined') {
+            addResult('✓ Performance optimizer: PerformanceOptimizer class available', 'success');
+        } else {
+            addResult('✗ Performance optimizer: PerformanceOptimizer class not found', 'error');
+        }
+
+        // Test image optimizer
+        if (typeof ImageOptimizer !== 'undefined') {
+            addResult('✓ Image optimizer: ImageOptimizer class available', 'success');
+        } else {
+            addResult('✗ Image optimizer: ImageOptimizer class not found', 'error');
+        }
+
+        // Test WebP support detection
+        const canvas = document.createElement('canvas');
+        canvas.width = 1;
+        canvas.height = 1;
+        const supportsWebP = canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+        addResult(`WebP support: ${supportsWebP ? 'Supported' : 'Not supported'}`, 'info');
+
+        // Test performance API
+        if ('PerformanceObserver' in window) {
+            addResult('✓ Performance monitoring: PerformanceObserver available', 'success');
+        } else {
+            addResult('✗ Performance monitoring: PerformanceObserver not available', 'error');
+        }
+
+        // Test intersection observer
+        if ('IntersectionObserver' in window) {
+            addResult('✓ Lazy loading: IntersectionObserver available', 'success');
+        } else {
+            addResult('✗ Lazy loading: IntersectionObserver not available', 'error');
+        }
+    </script>
+
+    <!-- Load performance optimization scripts -->
+    <script src="assets/js/performance-optimizer.js"></script>
+    <script src="assets/js/lazy-loading.js"></script>
+    <script src="assets/js/image-optimizer.js"></script>
+
+    <script>
+        // Test script loading
+        setTimeout(() => {
+            if (window.performanceOptimizer) {
+                addResult('✓ Performance optimizer: Successfully initialized', 'success');
+            }
+            
+            if (window.lazyLoader) {
+                addResult('✓ Lazy loader: Successfully initialized', 'success');
+            }
+            
+            if (window.imageOptimizer) {
+                addResult('✓ Image optimizer: Successfully initialized', 'success');
+            }
+        }, 1000);
+    </script>
+
+</body></html>
